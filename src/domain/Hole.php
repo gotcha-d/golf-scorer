@@ -15,8 +15,8 @@ class Hole
         $this->par = $par;
     }
 
-    public function getPar(): int
+    public function getPar(): Par
     {
-        return $this->par->getValue();
+        return $this->par;
     }
 }

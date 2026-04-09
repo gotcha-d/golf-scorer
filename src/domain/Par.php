@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain;
 
 use InvalidArgumentException;
@@ -19,7 +21,7 @@ class Par
         $this->value = $value;
     }
 
-    public function getValue(): int
+    public function toInt(): int
     {
         return $this->value;
     }
