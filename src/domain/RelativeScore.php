@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Domain;
 
+use Symfony\Component\HttpKernel\HttpCache\Store;
+
 class RelativeScore
 {
     private int $value;
@@ -15,10 +17,10 @@ class RelativeScore
         $this->value = $value;
     }
 
-    public static function from(Score $score, Par $par): self
+    public static function from(Strokes $strokes, Par $par): self
     {
         return new self(
-                $score->toInt() - $par->toInt()
+                $strokes->toInt() - $par->toInt()
             );
     }
 }

@@ -6,7 +6,7 @@ namespace Domain;
 
 use InvalidArgumentException;
 
-class Score
+class Strokes
 {
     private const MIN = 1;
 

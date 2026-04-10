@@ -7,16 +7,16 @@ namespace Domain;
 class HoleScore
 {
     private Hole $hole;
-    private Score $score;
+    private Strokes $strokes;
 
-    public function __construct(Hole $hole, Score $score)
+    public function __construct(Hole $hole, Strokes $strokes)
     {
         $this->hole = $hole;
-        $this->score = $score;
+        $this->strokes = $strokes;
     }
 
     public function relativeScore(): RelativeScore
     {
-        return $this->hole->relativeScoreFor($this->score);
+        return $this->hole->relativeScoreFor($this-$strokes);
     }
 }
