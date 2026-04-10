@@ -10,11 +10,15 @@ class RelativeScore
 
     public function __construct(int $value)
     {
-        // TODO: あとでビジネスルールを検討する
+        // 名前付きコンストラクタでビジネスルールが表現されるので、
+        // -100以下はビジネス上許可しない、などの制約が生まれた場合はバリデーションを追加する。
         $this->value = $value;
     }
 
-    public static function for(Score $score, Par $par) {
-        return new self($score->toInt() - $par->toInt());
+    public static function from(Score $score, Par $par): self
+    {
+        return new self(
+                $score->toInt() - $par->toInt()
+            );
     }
 }
