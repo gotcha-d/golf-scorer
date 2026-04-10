@@ -15,13 +15,8 @@ class HoleScore
         $this->score = $score;
     }
 
-    public function getScore(): Score
-    {
-        return $this->score;
-    }
-
     public function relativeScore(): RelativeScore
     {
-        return RelativeScore::from($this->score, $this->hole->getPar());
+        return $this->hole->relativeScoreFor($this->score);
     }
 }

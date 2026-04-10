@@ -15,8 +15,8 @@ class Hole
         $this->par = $par;
     }
 
-    public function getPar(): Par
+    public function relativeScoreFor(Score $score): RelativeScore
     {
-        return $this->par;
+        return RelativeScore::from($score, $this->par);
     }
 }
