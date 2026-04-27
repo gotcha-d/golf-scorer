@@ -29,4 +29,9 @@ class Strokes
     {
         return $this->value;
     }
+
+    public function equals(Strokes $other): bool
+    {
+        return $this->value === $other->value;
+    }
 }

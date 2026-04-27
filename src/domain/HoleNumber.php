@@ -21,6 +21,11 @@ class HoleNumber
         $this->value = $value;
     }
 
+    function value(): int
+    {
+        return $this->value;
+    }
+
     public function __toString(): string
     {
         return sprintf("%dH", $this->value);

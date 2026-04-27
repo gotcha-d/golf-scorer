@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Domain;
 
+/**
+ * ホール
+ */
 class Hole
 {
     private HoleNumber $holeNumber;
@@ -15,8 +18,8 @@ class Hole
         $this->par = $par;
     }
 
-    public function relativeScoreFor(Strokes $strokes): RelativeScore
+    public function par(): Par
     {
-        return RelativeScore::from($strokes, $this->par);
+        return $this->par;
     }
 }
