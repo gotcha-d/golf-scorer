@@ -11,17 +11,25 @@ class Course
 {
     private CourseId $courseId;
     private CourseName $name;
-    private Holes $holes;
+    private TeeCollection $tees;
 
-    public function __construct(CourseId $courseId, CourseName $courseName, Holes $holes)
+    public function __construct(CourseId $courseId, CourseName $courseName, TeeCollection $tees)
     {
         $this->courseId = $courseId;
         $this->name = $courseName;
-        $this->holes = $holes;
+        $this->tees = $tees;
     }
 
-    public function parOf(HoleNumber $holeNumber): Par
+    public function parOf(TeeName $teeNma, HoleNumber $holeNumber): Par
     {
-        return $this->holes->parOf($holeNumber);
+        return $this->tees->parOf($teeName, $holeNumber);
+    }
+
+    public function play(TeeName $teeName): PlayedCourse
+    {
+        return new PlayedCourse(
+            $this->name,
+            $this->tees->pick($teeName)
+        );
     }
 }

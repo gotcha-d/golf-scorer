@@ -18,6 +18,5 @@ class  Tee
     public function equalsName(TeeName $otherName): bool
     {
         return $this->teeName->equals($otherName);
-
-    public function parOf(HoleNumber $holeNumber)
+    }
 }

@@ -8,7 +8,7 @@ class RoundBody
 {
     // ラウンド開始時のコース情報 スナップショットで不変
     private RoundSetup $roundSetup;
-    // スコアなど、ラウンド進行状態で変化する情報
+    // スコアなど、ラウンド進行に応じて更新される情報 可変
     private RoundProgress $roundProgress;
 
     private function __construct(RoundSetup $roundSetup, RoundProgress $roundProgress)
@@ -17,10 +17,8 @@ class RoundBody
         $this->roundProgress = $roundProgress;
     }
 
-    public static function start(): self
+    public static function start(RoundSetup $roundSetup): self
     {
-        return new self(
-
-        )
+        return new self()
     }
 }

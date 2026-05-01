@@ -14,10 +14,13 @@ class TeeCollection
         $this->tees = $tees;
     }
 
-    public function ofName(TeeName $teeName): Tee
+    public function pick(TeeName $teeName): Tee | null
     {
         foreach ($this->tees as $tee) {
-            if ($tee->name())
+            if ($tee->equalsName($teeName)) {
+                return $tee;
+            }
         }
+        return null;
     }
 }
