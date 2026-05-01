@@ -4,35 +4,40 @@ declare(strict_types=1);
 
 namespace Domain;
 
+use RoundBody;
+
 class Round
 {
     private RoundId $roundId;
-    private HoleScoreCollection $holeScores;
+    private RoundBody $body;
 
-    public function __construct(RoundId $roundId, HoleScoreCollection $holeScores)
-    {
+    public function __construct(
+        RoundId $roundId,
+        RoundBody $roundBody
+    ) {
         $this->roundId = $roundId;
-        $this->holeScores = $holeScores;
+        $this->body = $roundBody;
     }
 
-    public static function from(Course $course, array $scores): self {
-        $holes = $course->getHoles();
-        // 入力された層を変換する
-        foreach($scores as $index => $score) { // HACK: 素の配列よりも、strokeのコレクションの方がドメイン知識を再現できている気がする
-            $holeNumber = new HoleNumber($index);
-            $par = $holes->parOf($holeNumber);
-            $holeScoreCollection->getPar
-
-        }
-        HoleScoreCollection::of($holeScores)
-        for($i = $from; $to <= $to; $i++) {
-            $par = $holes->parOf($i);
-
-        }
+    public function start(): self
+    {
         return new self(
-            0, // TODO: 0は仮置き。別途uuidなどの利用を検討する
-            $roundScoreCollection
-        )
-        foreach ($courese as )
+            new RoundId(0),
+            RoundBody::start()
+        );
+    }
+    public function record(HoleScore $score): void
+    {
+        $this->body->record($score);
+    }
+
+    public function correct(HoleScore $score): void
+    {
+        $this->body->correct($score);
+    }
+
+    public function remove(HoleNumber $holeNumber): void
+    {
+        $this->body->remove($holeNumber);
     }
 }
