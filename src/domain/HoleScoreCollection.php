@@ -30,6 +30,11 @@ class HoleScoreCollection
         return new self($holeScores);
     }
 
+    public static function empty(): self
+    {
+        return  new self([]);
+    }
+
     public function add(HoleScore $holeScore): void
     {
         if ($this->containsSameHole($holeScore)) {

@@ -18,4 +18,14 @@ enum PlayMode
             self::OUT_HALF => 9,
         };
     }
+
+    public static function tryfrom(string $value): self | null
+    {
+        return match ($value) {
+            'full' => self::FULL,
+            'in_half' => self::IN_HALF,
+            'out_half' => self::OUT_HALF,
+            default => null
+        };
+    }
 }

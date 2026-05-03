@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Domain;
 
-use RoundBody;
-
 class Round
 {
     private RoundId $roundId;
@@ -19,13 +17,19 @@ class Round
         $this->body = $roundBody;
     }
 
-    public function start(): self
+    /*
+     * ラウンドを開始する
+     *
+     * メソッドのシグネチャは業務の言葉で表現する
+     */
+    public static function create(PlayedCourse $playedCourse, PlayMode $playMode): self
     {
         return new self(
-            new RoundId(0),
-            RoundBody::start()
+            new RoundId(0), // TODO: 仮で0とする
+            RoundBody::create($playedCourse, $playMode)
         );
     }
+
     public function record(HoleScore $score): void
     {
         $this->body->record($score);

@@ -19,4 +19,13 @@ class  Tee
     {
         return $this->teeName->equals($otherName);
     }
+
+    public function parOf(HoleNumber $holeNumber): Par
+    {
+        foreach ($this->holes as $hole) {
+            if ($hole->equals($holeNumber)) {
+                return $hole->
+            }
+        }
+    }
 }

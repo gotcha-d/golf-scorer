@@ -6,12 +6,12 @@ namespace Domain;
 
 class RoundSetup
 {
-    private PlayMode $plaMode;
+    private PlayMode $playMode;
     private PlayedCourse $playedCourse;
 
-    public function __construct(PlayMode $playMode, PlayedCourse $playedCourse)
+    public function __construct(PlayedCourse $playedCourse, PlayMode $playMode)
     {
-        $this->plaMode = $playMode;
+        $this->playMode = $playMode;
         $this->playedCourse = $playedCourse;
     }
 }

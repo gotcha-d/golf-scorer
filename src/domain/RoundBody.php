@@ -17,8 +17,11 @@ class RoundBody
         $this->roundProgress = $roundProgress;
     }
 
-    public static function start(RoundSetup $roundSetup): self
+    public static function create(PlayedCourse $playedCourse, PlayMode $playMode): self
     {
-        return new self()
+        return new self(
+            new RoundSetup($playedCourse, $playMode),
+            RoundProgress::create()
+        );
     }
 }
